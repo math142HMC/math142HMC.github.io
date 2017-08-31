@@ -1,0 +1,637 @@
+\documentclass[12pt]{article}
+\usepackage[tmargin=1.25in,lmargin=1in,rmargin=1in,bmargin=1in,paper=letterpaper]{geometry}
+\usepackage{amsmath,amssymb,amsthm,framed}
+\usepackage{multirow,color,multicol}
+\usepackage{fancyhdr,ifthen,lastpage}
+\usepackage{verbatim,enumerate,cancel}
+% --------------------------------------------------------------------
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathcal{B}}
+\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+
+\newcommand{\sm}{\setminus}
+\newcommand{\es}{\emptyset}
+\newcommand{\ol}{\overline}
+\newcommand{\inv}{^{-1}}
+\newcommand{\seq}[1]{\{ {#1}_n\}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mbf}{\mathbf}
+\renewcommand{\=}{&=&}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\newcommand{\bmat}{\begin{pmatrix}}
+\newcommand{\emat}{\end{pmatrix}}
+\newcommand{\beq}{\begin{eqnarray*}}
+\newcommand{\eeq}{\end{eqnarray*}}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\DeclareMathOperator{\repart}{Re}
+\DeclareMathOperator{\impart}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\rk}{rank}
+\DeclareMathOperator{\nullsp}{null}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\vspan}{span}
+
+% --------------------------------------------------------------------
+\begin{document}
+%
+\newcommand{\deriv}[2]{\ensuremath{\frac{d{#1}}{d{#2}}}}
+\newcommand{\dderiv}[2]{\ensuremath{\frac{d^2{#1}}{d{#2}^2}}}
+
+%---------------------------------------------------------------------
+\parindent=0in
+%
+\newcounter{probnum}
+\newenvironment{problems}
+   {\begin{list}{{\bf A\arabic{probnum}:}}%
+       {\setlength\labelwidth{.25in}%
+         \setlength\leftmargin{0in}%
+         \setlength\itemsep{\parsep}%
+         \usecounter{probnum}}}%
+   {\end{list}}
+%
+% HEADER & FOOTER %
+\pagestyle{fancy}
+% HEADER %
+\lhead{ Math 142}
+\rhead{Prof. Gu}
+\chead{\bf Linear Algebra Review Answer Key}
+% FOOTER %
+\lfoot{} 
+\rfoot{}
+\cfoot{\ifthenelse{\equal{\thepage}{\pageref{lastpage}}}{}{\footnotesize{{\color{red}(please turn over)}}}}
+%%%%%
+
+
+\begin{center}
+\Large Linear Algebra Review
+\end{center}
+{\bf Due date:} \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{problems}
+
+
+\item
+
+For which of the following matrices are you \emph{guaranteed} a real diagonal form or no
+real diagonal form at all without first determining the existence of an eigenbasis? Why?
+%\begin{framed}
+\begin{align*}
+	A &= \bmat 5 & 0 & -1 \\ 0 & 3 & 3 \\ -1 & 3 & 0 \emat &
+	B &= \bmat 2 & 5 & 3 \\ 0 & 3 & 0 \\ 0 & 0 & 2 \emat &
+	C &= \bmat \frac{\sqrt{3}}{2} & -\frac{1}{2} \\ \frac{1}{2} & \frac{\sqrt{3}}{2} \emat \\
+	D &= \bmat 0 & 1 \\ -1 & 0 \emat &
+	E &= \bmat 1 & a \\ 0 & 1 \emat &
+	F &= \bmat 1 & 3 \\ 2 & 2 \emat
+\end{align*}
+%\end{framed}
+
+%\begin{solution}
+	
+%\end{solution}
+
+\item 
+Let $$A = \bmat 1 &  0 & -4 \\ 0 & 5 & 4 \\ -4 & 4 & 3 \emat.$$
+\begin{enumerate}
+	%\begin{framed}
+	\item Find the eigenvalues and corresponding eigenvectors of $A$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Is $A$ similar to a diagonal matrix? If so, find a nonsingular matrix $P$ such that
+	$P\inv A P$ is diagonal. Is $P$ unique? Explain.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find the eigenvalues of $A\inv$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find the eigenvalues and corresponding eigenvectors of $A^2$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item  
+Let $L : \P_2 \to \P_2$ be defined by $$L(a+bt+ct^2) = (2a-c) + (a+b-c) t + c t^2.$$
+\begin{enumerate}
+	%\begin{framed}
+	\item Find the matrix $A$ representing $L$ with respect to the standard basis of $\P_2$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find all the eigenvalues of $A$. For each eigenvalue, find all eigenvectors 
+	associated with that eigenvalue.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find a matrix $P$ such that $P\inv AP$ is diagonal.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find $A^n$ where $n$ is an integer. What is $L^{100}$?
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+
+\item 
+Let $A$ be an $n \times n$ real matrix.
+\begin{enumerate}
+	%\begin{framed}
+	\item Prove that the coefficient of $\lambda^{n-1}$ in the characteristic polynomial
+	of $A$ is given by $-\trace A$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Prove that $\trace A$ is the sum of the eigenvalues of $A$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Prove that the constant coefficient of the characteristic polynomial of $A$ is
+	$\pm$ the product of the eigenvalues of $A$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item 
+Let $A$ be a $5 \times 5$ matrix. Suppose $A$ has distinct eigenvalues
+$-1,1,-10,5,2$.
+\begin{enumerate}
+	%\begin{framed}
+	\item What is $\det A$? What is $\trace A$?
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item If $A$ and $B$ are similar, what is $\det B$? Why?
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Do you expect that all eigenvectors of $A$ are mutually orthogonal? Why?
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+\emph{This is an extra credit-type problem.}
+Let $p_1(\lambda)$ be the characteristic polynomial of $A_{11}$ and $p_2(\lambda)$ the
+characteristic polynomial of $A_{22}$. What is the characteristic polynomial of each of the
+following partitioned matrices?
+\beq
+	A = \bmat A_{11} & 0 \\ 0 & A_{22} \emat \qquad
+	B = \bmat A_{11} & A_{21} \\ 0 & A_{22} \emat
+\eeq
+%\begin{solution}
+
+%\end{solution}
+
+
+
+
+\item 
+\begin{enumerate}
+	%\begin{framed}
+	\item Prove that similar matrices have the same eigenvalues.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $\lambda_1, \lambda_2, \ldots, \lambda_k$ be distinct eigenvalues of a matrix
+	$A$ with associated eigenvectors $x_1, x_2, \ldots, x_k$. Prove that $x_1, x_2, \ldots,
+	x_k$ are linearly independent.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $L:\R^n \to \R^n$ be a linear transformation defined by $L(X) = AX$. Let
+	$V_\lambda = \{\xi \in \R^n \mid L(\xi) = \lambda \xi\}$. Prove $V_\lambda$ is a subspace
+	of $\R^n$. (This subspace is called the eigenspace associated with $\lambda$.)
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $\lambda$ be an eigenvalue of $A$ with multiplicity $r$. Let $\dim V_\lambda
+	= s$. Prove $s \le r$. (That is, the dimension of the eigenspace associated with 
+	$\lambda$ is at most the multiplicity of $\lambda$.)
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+Let
+\beq
+	u = \bmat 1 \\ 0 \\ 1 \emat, \qquad 
+	v = \bmat 1 \\ -1 \\ 0 \emat, \qquad 
+	w = \bmat 2 \\ 2 \\ -\sqrt{6} \emat.
+\eeq
+\begin{enumerate}
+	%\begin{framed}
+	\item Find $\|u\|,\|v\|$. Find a unit vector in the direction of $u$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find the distance between $v$ and $w$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Find angle between $u$ and $v$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Show that $v$ and $w$ are orthogonal.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+\begin{enumerate}
+	%\begin{framed}
+	\item Prove the Cauchy-Schwarz Inequality: If $u$ and $v$ are any vectors in an inner 
+	product space $V$, then $\langle u, v \rangle^2 \le \|u\|^2 \|v\|^2$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Consider $\R^n$ with the standard inner product. Let
+	$u = (u_1, u_2, \ldots, u_n)$ and $v~=~(v_1, v_2, \ldots, v_n)$. Prove that 
+	\beq
+		\left(\sum_{i=1}^n u_i v_i \right)^2 \le \left(\sum_{i=1}^n u_i^2 \right)
+		\left(\sum_{i=1}^n v_i^2 \right).
+	\eeq
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $V$ be the vector space of all continuous real-valued functions on the
+	unit interval $[0,1]$ with inner product $\<f,g\> = \int_0^1 f(t) g(t) \, dt$. Prove
+	\beq
+		\left(\int_0^1 f(t) g(t) \, dt \right)^2 \le \left(\int_0^1 f^2(t) \, dt \right)
+		\left(\int_0^1 g^2(t) \, dt \right).
+	\eeq
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+Let $C = [c_{ij}]$ be an $n \times n$ symmetric matrix and let $V$ be an $n$-dimensional
+vector space with ordered basis $S = \{u_1, u_2, \ldots, u_n\}$. For $v = a_1 u_1 + a_2 u_2
++ \cdots + a_n u_n$ and $w = b_1 u_1 + b_2 u_2 + \cdots + b_n u_n$ in $V$, define
+$$(v,w) = \sum_{i=1}^n \sum_{j=1}^n a_i c_{ij} b_j.$$ Prove that this defines an inner
+product on $V$ if and only if $C$ is a positive-definite matrix.
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+Let $V$ be the vector space of all continuous functions on the interval $[-\pi, \pi]$. For $f$ and
+$g$ in $V$, define $\<f,g\> = \int_{-\pi}^\pi f(t) g(t) \, dt$.
+\begin{enumerate}
+	%\begin{framed}
+	\item Show that this defines an inner product on $V$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Show that the following set is an orthogonal set:
+	$$\{1, \cos t, \sin t, \cos 2t, \sin 2t, \ldots, \cos nt, \sin nt, \ldots \}.$$
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Convert the above set into an orthonormal set.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+A linear transformation $L:V \to V$, where $V$ is an $n$-dimensional Euclidean
+space, is called \emph{orthogonal} if $\<Lv,Lw\> = \<v,w\>$.
+\begin{enumerate}
+	%\begin{framed}
+	\item Let $A$ be an $n \times n$ matrix. Show that $A$ is orthogonal if and only if the
+	columns (and rows) of $A$ form an orthonormal basis for $\R^n$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $S$ be an orthonormal basis for $V$ and let the matrix $A$ represent the 
+	orthogonal linear transformation $L$ with respect to $S$. Prove that $A$ is an 
+	orthogonal matrix.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Prove that for any vectors $u, v \in \R^n$, $\<Lu,Lv\> = \<u,v\>$ if and only if for
+	any $u \in \R^n$, $\|Lu\|=\|u\|$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Let $L:V \to V$ be an orthogonal linear transformation. Show that
+	if $\lambda$ is an eigenvalue of $L$, then $|\lambda| = 1$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+Let $W$ be the subspace of the Euclidean space $\R^4$ with standard inner product with
+basis $S = \{u_1, u_2, u_3\}$, where
+\beq
+	u_1 = \bmat 1 \\ 1 \\ 1 \\ 0 \emat, \qquad
+	u_2 = \bmat -1 \\ 0 \\ -1 \\ 1 \emat, \qquad
+	u_3 = \bmat -1 \\ 0 \\ 0 \\ -1 \emat.
+\eeq
+Transform $S$ to an orthonormal basis $T = \{w_1, w_2, w_3\}$ using the Gram-Schmidt
+process.
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+\begin{enumerate}
+	%\begin{framed}
+	\item Let $$A = \bmat -1 & 3 & 3 \\ 3 & -1 & 3 \\ 3 & 3 & -1 \emat.$$ Find a $3 \times 3$ 
+	matrix $P$ with $P \inv = P^T$ such that $P^T A P = D$, where $D$ is a $3 \times 3$ 
+	diagonal matrix.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item (Extra credit) Show that all the eigenvalues of a real symmetric matrix are real 
+	numbers.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Show that if $A$ is a symmetric real matrix, then eigenvectors that belong to 
+	distinct eigenvalues of $A$ are orthogonal.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Prove that a symmetric matrix $A$ is positive-definite if and only if $A = P^T P$
+	for a nonsingular matrix $P$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Prove that if the matrix $A$ is similar to a diagonal matrix, then $A$ is similar to
+	$A^T$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+Consider two adjoining cells separated by a permeable membrane and suppose that a fluid
+flows from the first cell to the second one at a rate (in milliliters per minute) that is numerically
+equal to three times the volume (in milliliters) of the fluid in the first cell. It then flows out of
+the second cell at a rate (in milliliters per minute) that is numerically equal to twice the volume
+in the second cell. Let $x_1(t)$ and $x_2(t)$ denote the volumes of the fluid in the first and
+second cells at time $t$, respectively. Assume that initially the first cell has 40 milliliters of
+fluid, while the second one has 5 milliliters of fluid. Find the volume of fluid in each cell at
+time $t$.
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+Consider a plant that can have red flowers (R), pink flowers (P), or white flowers (W),
+depending upon the genotypes RR, RW, and WW. When we cross each of these genotypes
+with a genotype RW, we obtain the transition matrix
+$$M=\bmat 0.5 & 0.25 & 0.0 \\ 0.5 & 0.5 & 0.5 \\ 0.0 & 0.25 & 0.5 \emat.$$
+Suppose that each successive generation is produced by crossing only with plants of $RW$
+genotype. When the process reaches equilibrium, what percentage of the plants will have 
+red, pink, or white flowers?
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+\begin{enumerate}
+	%\begin{framed}
+	\item Compute the eigenvalues and eigenvectors of $$A = \bmat 1 & 1 \\ 1 & 0 \emat.$$
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Verify that if $A = PBP\inv$ and $k$ is a positive integer, then $A^k = PB^kP\inv$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Using a hand calculator or MATLAB, compute $f_8$, $f_{12}$, and $f_{20}$, 
+	where $f_n$ is the $n$th Fibonacci number, starting with $f_0 = f_1 = 1$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+\item
+Determine which of the given quadratic forms in three variables are equivalent:
+\beq
+	g_1(\mbf x) &=& x_1^2 + x_2^2+x_3^3 + 2 x_1 x_2 \\
+	g_2(\mbf x) &=& 2x_2^2 + 2x_3^2 + 2 x_2 x_3 \\
+	g_3(\mbf x) &=& 3x_2^2 - 3x_3^2 + 8 x_2 x_3 \\
+	g_4(\mbf x) &=& 3x_2^2 + 3x_3^2 - 4 x_2 x_3.
+\eeq
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+Which of the following matrices are positive-definite?
+\beq
+	A = \bmat 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \emat, \qquad
+	B = \bmat 3 & 2 \\ 2 & 5 \emat, \qquad
+	C = \bmat 1 & 4 & 5 \\ 0 & 2 & 6 \\ 0 & 0 & 3 \emat, \qquad
+	E = \bmat 1 & 3 \\ 3 & 5 \emat.
+\eeq
+
+%\begin{solution}
+	
+%\end{solution}
+
+
+
+\item
+Let $g(\mbf x) = 3x_1^2 - 3x_2^2 - 3x_3^2 + 4 x_2 x_3$ be a quadratic form in three
+variables. 
+\begin{enumerate}
+	%\begin{framed}
+	\item Find a quadratic form in the type given in the Principal Axis Theorem that is 
+	equivalent to $g$. What is the rank of $g$? What is the signature of $g$?
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+	
+	%\begin{framed}
+	\item Identify the surface $g(\mbf x) = 9$.
+	%\end{framed}
+	%\begin{solution}
+	
+	%\end{solution}
+\end{enumerate}
+
+
+
+
+
+\end{problems}
+\label{lastpage}
+\end{document}
+
+
+
+
+
+
